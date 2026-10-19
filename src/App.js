@@ -1,10 +1,18 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Header from './components/Header';
+import HomePage from './pages/HomePage';
+import ProductList from './pages/ProductList';
+import ProductDetail from './pages/ProductDetail';
 
 function App() {
     return (
         <BrowserRouter>
+            {/* Header nằm ngoài Routes nên hiện ở mọi trang */}
+            <Header />
             <Routes>
-                {/* <Route path="/" element={<Movies/>}></Route> */}
+                <Route path="/" element={<HomePage/>}></Route>
+                <Route path="/products" element={<ProductList/>}></Route>
+                <Route path="/products/:id" element={<ProductDetail/>}></Route>
             </Routes>
         </BrowserRouter>
     );
