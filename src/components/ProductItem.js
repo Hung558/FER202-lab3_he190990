@@ -2,7 +2,6 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 import { useNavigate } from 'react-router-dom'
 
-// Hiển thị 1 dòng sản phẩm trong bảng
 export default function ProductItem({ product }) {
   const navigate = useNavigate();
 

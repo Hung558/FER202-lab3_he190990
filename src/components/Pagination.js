@@ -1,10 +1,8 @@
 import React from 'react'
 import { Pagination } from 'react-bootstrap'
 
-// Đặt tên PaginationBar để không trùng với Pagination của react-bootstrap
-// page: trang hiện tại, totalPages: tổng số trang, onChangePage: hàm đổi trang
+
 export default function PaginationBar({ page, totalPages, onChangePage }) {
-  // Tạo mảng số trang: [1, 2, 3, ...]
   const pageNumbers = [];
   for (let i = 1; i <= totalPages; i++) {
     pageNumbers.push(i);

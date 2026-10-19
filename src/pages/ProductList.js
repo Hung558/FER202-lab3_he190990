@@ -16,18 +16,15 @@ export default function ProductList() {
   const sort = searchParams.get('sort') || 'none';
   const page = Number(searchParams.get('page')) || 1;
 
-  // Cập nhật 1 param trên URL
   function updateParam(key, value) {
     const newParams = new URLSearchParams(searchParams);
 
-    // Giá trị mặc định (ô trống, "All", "none", trang 1) thì xoá param cho URL gọn
     if (value === '' || value === 'All' || value === 'none' || value === 1) {
       newParams.delete(key);
     } else {
       newParams.set(key, value);
     }
 
-    // Đổi keyword / category / sort thì quay về trang 1
     if (key !== 'page') {
       newParams.delete('page');
     }
@@ -35,20 +32,16 @@ export default function ProductList() {
     setSearchParams(newParams);
   }
 
-  // 1. Lọc theo danh mục
-  // Tìm tên tiếng Việt của danh mục đang chọn, vd: "Phone" -> "Điện thoại"
   const selectedCategory = categories.find((item) => item.id === category);
 
   let shownProducts = products.filter((product) =>
     category === 'All' || (selectedCategory && product.category === selectedCategory.name)
   );
 
-  // 2. Lọc theo tên
   shownProducts = shownProducts.filter((product) =>
     product.name.toLowerCase().includes(search.trim().toLowerCase())
   );
 
-  // 3. Sắp xếp
   if (sort === 'price-asc') {
     shownProducts.sort((a, b) => a.price - b.price);
   } else if (sort === 'price-desc') {
@@ -59,7 +52,6 @@ export default function ProductList() {
     shownProducts.sort((a, b) => b.name.localeCompare(a.name));
   }
 
-  // 4. Phân trang
   const totalPages = Math.max(1, Math.ceil(shownProducts.length / PAGE_SIZE));
   const start = (page - 1) * PAGE_SIZE;
   const pageProducts = shownProducts.slice(start, start + PAGE_SIZE);
@@ -86,7 +78,6 @@ export default function ProductList() {
         </Col>
       </Row>
 
-      {/* Dòng 2: tổng số + phân trang */}
       <Row className="mb-3 align-items-center">
         <Col>
           Tổng: {shownProducts.length} | Trang: {page}/{totalPages}
@@ -100,7 +91,6 @@ export default function ProductList() {
         </Col>
       </Row>
 
-      {/* Dòng 3: bảng sản phẩm */}
       <Table striped bordered hover>
         <thead>
           <tr>
