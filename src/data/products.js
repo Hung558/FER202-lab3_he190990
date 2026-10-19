@@ -106,3 +106,12 @@ export const products = [
     description: "Tai nghe không dây với tính năng chống ồn."
   }
 ];
+
+// Danh mục: id (tiếng Anh) dùng trên URL, name (tiếng Việt) để hiển thị
+// vd: /products?category=Phone -> lọc các sản phẩm "Điện thoại"
+export const categories = [
+  { id: "Phone", name: "Điện thoại" },
+  { id: "Laptop", name: "Laptop" },
+  { id: "Tablet", name: "Máy tính bảng" },
+  { id: "Accessory", name: "Phụ kiện" }
+];

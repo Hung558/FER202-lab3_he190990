@@ -6,11 +6,8 @@ export default function HomePage() {
   const navigate = useNavigate();
 
   return (
-    // Căn giữa cả chiều ngang lẫn chiều dọc (trừ chiều cao navbar ~56px)
-    <Container
-      className="d-flex flex-column justify-content-center align-items-center text-center"
-      style={{ minHeight: 'calc(100vh - 56px)' }}
-    >
+    // text-center: căn giữa, py-5 mt-5: cách xa navbar cho nội dung nằm giữa trang
+    <Container className="text-center py-5 mt-5">
       <h1 className="display-4 fw-bold">Welcome to ProductStore</h1>
       <p className="text-muted mb-4">Manage and explore products for your needs.</p>
       <Button variant="primary" size="lg" onClick={() => navigate('/products')}>
@@ -19,3 +16,6 @@ export default function HomePage() {
     </Container>
   )
 }
+
+/*
+*/
