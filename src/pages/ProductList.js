@@ -7,11 +7,9 @@ import CategoryFilter from '../components/CategoryFilter'
 import PaginationBar from '../components/Pagination'
 import ProductItem from '../components/ProductItem'
 
-// Số sản phẩm trên 1 trang
 const PAGE_SIZE = 3;
 
 export default function ProductList() {
-  // Mọi trạng thái đều lưu trên URL, vd: /products?keyword=iphone&category=Phone&sort=price-asc&page=2
   const [searchParams, setSearchParams] = useSearchParams();
   const search = searchParams.get('keyword') || '';
   const category = searchParams.get('category') || 'All';
@@ -68,7 +66,6 @@ export default function ProductList() {
 
   return (
     <Container className="py-4">
-      {/* Dòng 1: search (to nhất) | filter | sort */}
       <Row className="mb-3 g-2">
         <Col md={6}>
           <SearchBar search={search} onSearch={(value) => updateParam('keyword', value)} />
@@ -83,8 +80,8 @@ export default function ProductList() {
         <Col md={3}>
           <Form.Select value={sort} onChange={(event) => updateParam('sort', event.target.value)}>
             <option value="none">Sắp xếp: Mặc Định</option>
-            <option value="price-asc">Giá: thấp → cao</option>
-            <option value="price-desc">Giá: cao → thấp</option>
+            <option value="price-asc">Giá: thấp đến cao</option>
+            <option value="price-desc">Giá: cao đến thấp</option>
           </Form.Select>
         </Col>
       </Row>

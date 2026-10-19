@@ -7,7 +7,6 @@ import ProductDetail from './pages/ProductDetail';
 function App() {
     return (
         <BrowserRouter>
-            {/* Header nằm ngoài Routes nên hiện ở mọi trang */}
             <Header />
             <Routes>
                 <Route path="/" element={<HomePage />} />
