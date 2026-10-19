@@ -4,7 +4,7 @@ import { Badge, Button, Card, CardBody, Col, Container, Form, Nav, Navbar, Row, 
 import { useNavigate, useSearchParams } from "react-router-dom";
 
 export default function FileMau() {
-  return (
-    <div>FileMau</div>
-  )
+    return (
+        <div>FileMau</div>
+    )
 }
